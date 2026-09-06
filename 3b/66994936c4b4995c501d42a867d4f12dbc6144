@@ -1,0 +1,135 @@
+---
+{
+  "schema_version": "authorship/3.1.0",
+  "tlab_version": "0.10.2",
+  "base_commit_sha": "3b66994936c4b4995c501d42a867d4f12dbc6144",
+  "prompts": {},
+  "changes": [
+    {
+      "new_path": ".agents/plugins/marketplace.json",
+      "additions": {
+        "human": 21
+      }
+    },
+    {
+      "new_path": ".codex-plugin/plugin.json",
+      "additions": {
+        "human": 27
+      }
+    },
+    {
+      "new_path": ".gitignore",
+      "additions": {
+        "human": 4
+      }
+    },
+    {
+      "new_path": "README.md",
+      "additions": {
+        "human": 55
+      }
+    },
+    {
+      "new_path": "references/artifact-contracts.md",
+      "additions": {
+        "human": 58
+      }
+    },
+    {
+      "new_path": "references/command-provenance.md",
+      "additions": {
+        "human": 40
+      }
+    },
+    {
+      "new_path": "references/command-sources.schema.json",
+      "additions": {
+        "human": 55
+      }
+    },
+    {
+      "new_path": "references/fast-stats.md",
+      "additions": {
+        "human": 19
+      }
+    },
+    {
+      "new_path": "scripts/run_fast_stats.py",
+      "additions": {
+        "human": 128
+      }
+    },
+    {
+      "new_path": "scripts/validate_command_sources.py",
+      "additions": {
+        "human": 181
+      }
+    },
+    {
+      "new_path": "skills/support-customer-reply/SKILL.md",
+      "additions": {
+        "human": 30
+      }
+    },
+    {
+      "new_path": "skills/support-customer-reply/agents/openai.yaml",
+      "additions": {
+        "human": 4
+      }
+    },
+    {
+      "new_path": "skills/support-customer-reply/references/reply-modes.md",
+      "additions": {
+        "human": 37
+      }
+    },
+    {
+      "new_path": "skills/support-incident-investigation/SKILL.md",
+      "additions": {
+        "human": 24
+      }
+    },
+    {
+      "new_path": "skills/support-incident-investigation/agents/openai.yaml",
+      "additions": {
+        "human": 4
+      }
+    },
+    {
+      "new_path": "skills/support-incident-investigation/references/incident-method.md",
+      "additions": {
+        "human": 24
+      }
+    },
+    {
+      "new_path": "skills/support-performance-investigation/SKILL.md",
+      "additions": {
+        "human": 26
+      }
+    },
+    {
+      "new_path": "skills/support-performance-investigation/agents/openai.yaml",
+      "additions": {
+        "human": 4
+      }
+    },
+    {
+      "new_path": "skills/support-performance-investigation/references/performance-method.md",
+      "additions": {
+        "human": 25
+      }
+    },
+    {
+      "new_path": "skills/support-ticket-triage/SKILL.md",
+      "additions": {
+        "human": 37
+      }
+    },
+    {
+      "new_path": "skills/support-ticket-triage/agents/openai.yaml",
+      "additions": {
+        "human": 12
+      }
+    }
+  ]
+}
