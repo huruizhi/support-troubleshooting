@@ -1,0 +1,21 @@
+{
+  "name": "huruizhi-support",
+  "interface": {
+    "displayName": "huruizhi Support Plugins"
+  },
+  "plugins": [
+    {
+      "name": "support-troubleshooting",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/huruizhi/support-troubleshooting.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

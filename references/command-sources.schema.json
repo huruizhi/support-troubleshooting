@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/support-troubleshooting/command-sources.schema.json",
+  "title": "Support troubleshooting command sources",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "commands"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "commands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id", "command", "purpose", "status", "risk", "product",
+          "version", "installation_method", "platform", "source",
+          "expected_result"
+        ],
+        "properties": {
+          "id": {"type": "string", "pattern": "^CMD-[0-9]{3,}$"},
+          "command": {"type": "string", "minLength": 1},
+          "purpose": {"type": "string", "minLength": 1},
+          "status": {
+            "enum": ["verified", "needs-verification", "rejected"]
+          },
+          "risk": {"enum": ["read-only", "mutating", "destructive"]},
+          "product": {"type": "string", "minLength": 1},
+          "version": {"type": "string", "minLength": 1},
+          "installation_method": {"type": "string", "minLength": 1},
+          "platform": {"type": "string", "minLength": 1},
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "label", "locator", "verified_at"],
+            "properties": {
+              "type": {
+                "enum": [
+                  "cli-help", "man-page", "official-doc",
+                  "vendor-repository", "approved-runbook"
+                ]
+              },
+              "label": {"type": "string", "minLength": 1},
+              "locator": {"type": "string", "minLength": 1},
+              "verified_at": {"type": "string", "format": "date-time"}
+            }
+          },
+          "expected_result": {"type": "string", "minLength": 1},
+          "warning": {"type": "string"},
+          "rollback": {"type": "string"}
+        }
+      }
+    }
+  }
+}

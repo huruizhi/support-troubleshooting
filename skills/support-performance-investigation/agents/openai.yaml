@@ -1,0 +1,4 @@
+interface:
+  display_name: "Support Performance Investigation"
+  short_description: "Investigate latency and capacity regressions"
+  default_prompt: "Use $support-performance-investigation to compare the slow period with a healthy baseline and produce an evidence-backed finding."

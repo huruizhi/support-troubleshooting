@@ -1,0 +1,12 @@
+interface:
+  display_name: "Support Ticket Triage"
+  short_description: "Fetch, preserve, and route support tickets"
+  default_prompt: "Use $support-ticket-triage to fetch this ticket, save its evidence, and select the right investigation path."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "ticket-investigation"
+      description: "Read-only technical support ticket and artifact access"
+      transport: "streamable_http"
+      url: "https://support.gitlab.cn/mcp/ticket-investigation"

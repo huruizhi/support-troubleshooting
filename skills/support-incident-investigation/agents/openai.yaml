@@ -1,0 +1,4 @@
+interface:
+  display_name: "Support Incident Investigation"
+  short_description: "Investigate outages, errors, and failures"
+  default_prompt: "Use $support-incident-investigation to reconstruct this incident and identify the evidence-backed failure mechanism."

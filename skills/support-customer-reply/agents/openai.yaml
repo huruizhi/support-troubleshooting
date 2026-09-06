@@ -1,0 +1,4 @@
+interface:
+  display_name: "Support Customer Reply"
+  short_description: "Draft concise, actionable customer replies"
+  default_prompt: "Use $support-customer-reply to turn the investigation result into a concise, actionable, and courteous customer response."

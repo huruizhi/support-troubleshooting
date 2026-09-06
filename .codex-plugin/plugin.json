@@ -1,0 +1,27 @@
+{
+  "name": "support-troubleshooting",
+  "version": "0.1.0",
+  "description": "Evidence-driven ticket triage, performance and incident investigation, and concise customer replies.",
+  "author": {
+    "name": "huruizhi",
+    "url": "https://github.com/huruizhi"
+  },
+  "homepage": "https://github.com/huruizhi/support-troubleshooting",
+  "repository": "https://github.com/huruizhi/support-troubleshooting",
+  "keywords": ["support", "troubleshooting", "incident", "performance"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Support Troubleshooting",
+    "shortDescription": "Evidence-driven technical support troubleshooting.",
+    "longDescription": "Fetch and preserve ticket evidence, route performance and incident cases into different investigation workflows, verify the source of every customer-facing command, and draft concise actionable replies.",
+    "developerName": "huruizhi",
+    "category": "Productivity",
+    "capabilities": ["Read", "Analysis", "Write"],
+    "websiteURL": "https://github.com/huruizhi/support-troubleshooting",
+    "defaultPrompt": [
+      "获取并分流这个技术支持工单。",
+      "分析这个工单的性能问题。",
+      "根据排查结论生成客户回复。"
+    ]
+  }
+}
