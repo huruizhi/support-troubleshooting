@@ -1,7 +1,7 @@
 {
   "name": "support-troubleshooting",
-  "version": "0.1.0",
-  "description": "Evidence-driven ticket triage, performance and incident investigation, and concise customer replies.",
+  "version": "0.2.0",
+  "description": "Fast-path support triage with optional MCP retrieval, local log analysis, and concise customer replies.",
   "author": {
     "name": "huruizhi",
     "url": "https://github.com/huruizhi"
@@ -12,14 +12,14 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Support Troubleshooting",
-    "shortDescription": "Evidence-driven technical support troubleshooting.",
-    "longDescription": "Fetch and preserve ticket evidence, route performance and incident cases into different investigation workflows, verify the source of every customer-facing command, and draft concise actionable replies.",
+    "shortDescription": "Fast, evidence-driven support troubleshooting.",
+    "longDescription": "Analyze supplied ticket context immediately, use MCP only when evidence is missing or archival is requested, process large logs locally, route performance and incident cases separately, and verify every customer-facing command.",
     "developerName": "huruizhi",
     "category": "Productivity",
     "capabilities": ["Read", "Analysis", "Write"],
     "websiteURL": "https://github.com/huruizhi/support-troubleshooting",
     "defaultPrompt": [
-      "获取并分流这个技术支持工单。",
+      "快速分析并分流这个技术支持工单。",
       "分析这个工单的性能问题。",
       "根据排查结论生成客户回复。"
     ]

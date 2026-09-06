@@ -1,9 +1,11 @@
 # 工单排查产物契约
 
-一个工单对应一个目录。默认布局：
+本契约只适用于用户要求保存/归档、需要分析本地大日志，或深度排查需要可复用产物的情况。快速分析默认直接回复，不创建目录。
+
+保存模式下，一个工单对应一个目录。默认布局：
 
 ```text
-support-cases/<ticket-id>/
+support-cases/<case-id>/
 ├── ticket.json
 ├── ticket-context.json
 ├── artifacts/
@@ -16,7 +18,11 @@ support-cases/<ticket-id>/
 └── customer-reply.md
 ```
 
-保持 MCP 原始字段，规范化内容写入单独的分析产物。不要用推断值回填原始数据。
+保持 MCP 原始字段，规范化内容写入单独的分析产物。不要用推断值回填原始数据。MCP 未被调用时，不创建空的 `ticket.json` 或 `ticket-context.json`。
+
+## 快速分析
+
+无需文件。输出至少包含：`input_mode`、`classification`、`confidence`、带原文依据的 `facts`、明确标注的 `hypotheses`、`gaps` 和一个 `next_step`。只有用户要求保存时才把它写入 `routing.json`。
 
 ## evidence-index.md
 
@@ -24,9 +30,9 @@ support-cases/<ticket-id>/
 
 ## routing.json
 
-至少包含：
+保存路由结果时至少包含：
 
-- `ticket_id`
+- `ticket_id`: 有工单号时填写；否则省略
 - `classification`: `performance`、`incident` 或 `mixed`
 - `confidence`: `low`、`medium` 或 `high`
 - `reasons`: 带 `evidence_refs` 的理由

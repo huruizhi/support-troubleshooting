@@ -9,9 +9,9 @@ description: 根据已完成或进行中的技术支持排查结果生成简短�
 
 ## 输入门槛
 
-1. 读取 `analysis/investigation-result.json`；没有该文件时，可基于明确提供的排查摘要工作，但要把缺失项写成待确认，不能自行补齐。
+1. 优先读取明确提供的快速初判、排查摘要或 `analysis/investigation-result.json`。简单回复不要求先创建调查文件；缺失项写成待确认，不能自行补齐。
 2. 根据场景读取 [回复模式](references/reply-modes.md)，选择首响、进展、补充信息、初步结论或最终结论。
-3. 回复包含命令时，读取 [命令溯源规范](../../references/command-provenance.md) 和 `analysis/command-sources.json`，运行 [validate_command_sources.py](../../scripts/validate_command_sources.py) 并带上 `--customer-ready`。只有状态为 `verified` 且验证通过的命令可以进入回复。
+3. 回复包含命令时，读取 [命令溯源规范](../../references/command-provenance.md)，取得或创建 `command-sources.json`，运行 [validate_command_sources.py](../../scripts/validate_command_sources.py) 并带上 `--customer-ready`。只有状态为 `verified` 且验证通过的命令可以进入回复。
 
 ## 写作要求
 
@@ -23,7 +23,7 @@ description: 根据已完成或进行中的技术支持排查结果生成简短�
 - 对变更性动作写清风险、回退和执行窗口；没有这些信息时只请求只读数据。
 - 不暴露内部备注、内部链接、密钥、个人信息、未经确认的责任归属或对其他团队的推测。
 
-将最终文本写入 `customer-reply.md`。除非用户要求解释，不在正文中加入内部推理或证据编号。
+默认直接返回可复制的回复。只有用户要求保存，或已经存在需要持续维护的工单目录时，才写入 `customer-reply.md`。除非用户要求解释，不在正文中加入内部推理或证据编号。
 
 ## 完成条件
 

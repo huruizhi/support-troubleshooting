@@ -1,10 +1,10 @@
 # Support Troubleshooting
 
-面向技术支持工单的 Codex 插件。它把工单获取、性能问题、故障问题和客户回复拆成四个独立工作流，并要求所有客户命令都有可复核来源。
+面向技术支持工单的 Codex 插件。它优先利用用户已经提供的内容快速判断，只有证据不足或明确要求归档时才调用 MCP；大日志直接在本地分析。所有客户命令都必须有可复核来源。
 
 ## 能力
 
-- `support-ticket-triage`：通过只读工单 MCP 获取工单与附件，保存证据并分流。
+- `support-ticket-triage`：在快速分析、按需 MCP 和本地日志三条路径间选择并分流。
 - `support-performance-investigation`：分析延迟、吞吐、容量和资源饱和问题。
 - `support-incident-investigation`：分析不可用、崩溃、5xx、超时和数据错误。
 - `support-customer-reply`：根据排查产物生成简短、礼貌、可操作的客户回复。
@@ -13,7 +13,7 @@
 
 ## 安装
 
-需要有权限访问此私有 GitHub 仓库，并已配置 `ticket-investigation` MCP 的网络与认证。
+这是公开 GitHub 仓库。使用 MCP 路径时，仍需具备 `ticket-investigation` 服务的网络和认证权限。
 
 ```bash
 codex plugin marketplace add huruizhi/support-troubleshooting --ref main
@@ -25,15 +25,20 @@ codex plugin add support-troubleshooting@huruizhi-support
 ## 推荐用法
 
 - “获取并分流工单 SP-xxxxxxxx-xxxxx。”
+- “根据下面粘贴的工单内容快速判断，不调用 MCP。”
 - “分析这个工单的性能问题，并与正常时段对比。”
 - “分析这次服务不可用的故障时间线和失效机制。”
 - “根据排查结果生成给客户的简短回复。”
 
-## MCP 与本地产物
+## 三种输入路径
 
-只有工单获取 skill 声明 `ticket-investigation` MCP 依赖。调查 skills 可以继续处理已经保存到本地的工单和日志；客户回复 skill 只读取调查结果，避免在写回复时扩大数据访问范围。
+- `quick`：已有正文、错误、截图文字或日志片段时默认使用；不调用 MCP，不创建目录。
+- `mcp`：只有工单号、关键证据缺失或明确要求完整归档时使用；附件按需读取。
+- `local-log`：日志已在本地或超过 MCP 大小限制时使用；MCP 最多补充必要元数据。
 
-默认工单目录为 `support-cases/<ticket-id>/`。原始工单、附件、证据索引、调查结果、命令来源和客户回复分开保存。
+只有工单分流 skill 声明 `ticket-investigation` MCP 依赖，实际调用是惰性的。调查 skills 可以直接处理粘贴内容和本地日志；客户回复 skill 可以直接使用快速初判或正式调查结果。
+
+只有保存、归档或深度排查时才创建 `support-cases/<case-id>/`，有工单号时直接用工单号。原始工单、附件、证据索引、调查结果、命令来源和客户回复分开保存。
 
 ## 命令来源规则
 
@@ -49,7 +54,3 @@ codex plugin add support-troubleshooting@huruizhi-support
 ## fast-stats
 
 `scripts/run_fast_stats.py` 支持 `summary`、`errors`、`top` 和 `compare` 四种模式。运行前会读取本机 `fast-stats` 版本和 help，核对参数，并为结果生成 provenance 旁车文件。当前适配已在 `fast-stats 0.8.5` 上验证。
-
-## 仓库可见性
-
-此仓库默认以 private 创建，因为插件包含内部工单 MCP 地址。确认可以公开该地址和工作流后，再调整仓库可见性。
